@@ -1,0 +1,23 @@
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def hasCycle(self, head: Optional[ListNode]) -> bool:
+        t1=head
+        h=set()
+        while(t1):
+            if t1 in h:
+                return True
+            h.add(t1)
+            t1=t1.next
+        return False
+        '''lists and dictionaries both have same time complexities in searching i.e O(n)'''
+        '''it is recommendable to take set here because if we taking dict to store node we need to consider them inkey pair values which is an extra work'''
+        
+
+            
+
+        
