@@ -1,0 +1,18 @@
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
+        t1=headA   
+        t2=headB  
+        while(t1 != t2):
+            t1= t1.next if t1 else headB
+            t2=t2.next if t2 else headA
+        return t1
+        ''' Basically it uses the logic of 8 i.e if we think the two start node connects with opposite end nodes, and forms 8 like figure then the distance between the two common nodes from two directions is same'''
+        '''so each pointer first traverse its own list and enters traversing second list when both pointers traversing opposite lists they at exactly at specific no of moves reaches to destination'''
+
+        
