@@ -1,0 +1,25 @@
+class Solution:
+    def flatten(self, root):
+        if(root==None):
+            return None
+        def mergeLL(a,b):
+            new=Node(0)
+            h=new
+            while(a and b):
+                if(a.data<b.data):
+                    new.bottom=a
+                    new=a
+                    a=a.bottom
+                else:
+                    new.bottom=b
+                    new=b
+                    b=b.bottom
+            new.bottom=a if a else b
+            return h.bottom
+        def new_flatten(a):
+            if(a.next==None):
+                return a
+            else:
+                b=new_flatten(a.next)
+            return mergeLL(a,b)
+        return new_flatten(root)
