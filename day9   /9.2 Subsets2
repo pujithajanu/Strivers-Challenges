@@ -1,0 +1,16 @@
+class Solution:
+    def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
+        n=len(nums)
+        k=set()
+        l=[]
+        def rec(i,l):
+            if i==n:
+                k.add(tuple(sorted(l)))
+                return
+            else:
+                l.append(nums[i])
+                rec(i+1,l)
+                l.remove(nums[i])
+                rec(i+1,l)
+        rec(0,l)
+        return list(k)
