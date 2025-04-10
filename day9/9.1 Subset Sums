@@ -1,0 +1,17 @@
+#User function Template for python3
+class Solution:
+	def subsetSums(self, arr):
+	    s=[]
+	    l=len(arr)
+	    def subset(i,k):
+	        if i==l:
+	            s.append(k)
+	            return
+	        else:
+	            subset(i+1, k+arr[i])
+	            subset(i+1,k)
+	    subset(0,0)
+	    s.sort()
+	    return s
+	   
+
