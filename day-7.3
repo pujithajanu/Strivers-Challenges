@@ -1,0 +1,20 @@
+class Solution:
+    def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
+        n=len(candidates)
+        k=[]
+        l=[]
+        def rec(i,l):
+            if i==n:
+                if(sum(l)==target):
+                    k.append(sorted(l[:]))
+                return
+            else :
+                l.append(candidates[i])
+                #if l not in k:
+                rec(i+1,l)
+                l.pop()
+                #if l not in k:
+                rec(i+1,l)
+        rec(0,l)
+        return k
+        
